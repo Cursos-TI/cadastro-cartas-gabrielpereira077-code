@@ -5,10 +5,12 @@ typedef struct {
     char estado;
     char codigo[5];
     char nomedacidade[50];
-    int populacao;
+    float populacao;
     float  area;
     float pib;
     int pontosturisticos;
+    float densidade;
+    float pibpercapita;
 } Carta;
 
 int main() {
@@ -29,7 +31,7 @@ int main() {
     scanf(" %[^\n]", c1.nomedacidade);
 
     printf("Digite a população: ");
-    scanf("%d", &c1.populacao);
+    scanf("%f", &c1.populacao);
 
     printf("Digite a area (em KM²): ");
     scanf("%f", &c1.area);
@@ -39,6 +41,10 @@ int main() {
 
     printf("Digite o número de pontos turisticos: ");
     scanf("%d", &c1.pontosturisticos);
+
+    c1.densidade = c1.populacao / c1.area;
+
+    c1.pibpercapita = c1.pib / c1.populacao;
 
     // Cadastro da carta 2 pelo jogador
 
@@ -55,7 +61,7 @@ int main() {
     scanf(" %[^\n]", c2.nomedacidade);
 
     printf("Digite a população: ");
-    scanf("%d", &c2.populacao);
+    scanf("%f", &c2.populacao);
 
     printf("Digite a area (em KM²): ");
     scanf("%f", &c2.area);
@@ -66,24 +72,32 @@ int main() {
     printf("Digite o número de pontos turisticos: ");
     scanf("%d", &c2.pontosturisticos);
 
+    c2.densidade = c2.populacao / c2.area;
+
+    c2.pibpercapita = c2.pib / c2.populacao;
+    
 
     //Exibição dos dados inputados da carta1;
     printf("-=-=-=-=-CARTA1-=-=-=-=- ,\n");
     printf("Estado: %c\n", c1.estado);
     printf("Código: %s\n", c1.codigo);
     printf("Cidade: %s\n", c1.nomedacidade);
-    printf("População: %d\n", c1.populacao);
+    printf("População: %f\n", c1.populacao);
     printf("Area: %f\n", c1.area);
     printf("Pontos turisticos: %d\n", c1.pontosturisticos);
+    printf("Densidade Populacional: %.2f\n", c1.densidade);
+    printf("PIB per Capita:%f\n", c1.pibpercapita);
 
     //Exibição dos dados inputados da carta2;
     printf("-=-=-=-=-CARTA2-=-=-=-=- ,\n");
     printf("Estado: %c\n", c2.estado);
     printf("Código: %s\n", c2.codigo);
     printf("Cidade: %s\n", c2.nomedacidade);
-    printf("População: %d\n", c2.populacao);
+    printf("População: %f\n", c2.populacao);
     printf("Area: %f\n", c2.area);
     printf("Pontos turisticos: %d\n", c2.pontosturisticos);
+    printf("Densidade Populacional: %.2f\n", c2.densidade);
+    printf("PIB per Capita:%f\n", c2.pibpercapita);
     return 0;
 
 }
